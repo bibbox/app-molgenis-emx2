@@ -1,4 +1,4 @@
-# MOLGENIS BIBBOX application
+# MOLGENIS-EMX2 BIBBOX application
 
 This container can be installed as [BIBBOX APP](http://bibbox.readthedocs.io/en/latest/admin-documentation/ "BIBBOX App Store") or standalone.
  
