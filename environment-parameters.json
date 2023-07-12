@@ -1,4 +1,14 @@
 [
+
+     {
+        "id":"DB_PASSWORD",
+        "display_name":"DB Password",
+        "type":"password",
+        "default_value":"e.g. molgenis",
+        "description":"Database password, please change for production",
+        "min_length": "1",
+        "max_length": "128"
+     }
 ]
 
 
