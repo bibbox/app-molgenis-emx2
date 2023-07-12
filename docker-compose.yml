@@ -5,30 +5,49 @@ networks:
     external: true
     
 services:
-  postgres:
-    image: postgres:13-alpine
+  bibbox-postgres:
+    image: postgres:14-alpine
     networks:
       - bibbox-default-network
     environment:
-      - POSTGRES_USER=molgenis
-      - POSTGRES_PASSWORD=molgenis
-      - POSTGRES_DB=molgenis
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
     ports:
-      - "5433:5433"
+      - "5432:5432"
     volumes:
       - ./data/psql:/var/lib/postgresql/data
+      - ./data/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
     command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "molgenis"]
+      interval: 5s
+      timeout: 60s
+      retries: 5
     
-  emx2:
-    image: molgenis/molgenis-emx2:8.26.4
+  bibbox-emx2:
+    image: molgenis/molgenis-emx2:8.203.0
     networks:
       - bibbox-default-network
     restart: unless-stopped
     environment:
       - MOLGENIS_POSTGRES_URI=jdbc:postgresql://postgres/molgenis
+      - MOLGENIS_POSTGRES_USER=molgenis
+      - MOLGENIS_POSTGRES_PASS=molgenis
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      bibbox-postgres:
+        condition: service_healthy
     restart: on-failure
+    links:
+      - bibbox-postgres:postgres
+      - bibbox-ssr-catalogue:ssr-catalogue
+  bibbox-ssr-catalogue:
+    image: molgenis/ssr-catalogue
+    ports:
+    - "3000:3000"
+    networks:
+      - bibbox-default-network
+    
 

@@ -6,8 +6,8 @@ Be patient this can take up to 5 minutes (its a huge app). The last message in t
 
 `17-Sep-2021 07:24:16.134 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]`
 
-### Log in with the username admin and the password you specified in the installation. 
-The default admin user name is admin. The admin password is set during the installation within **BIBBOX**.
+### Log in with the username admin and the password admin. 
+The default admin login is admin/admin.
 
 ![Screenshot01](assets/install-screen-01.png)
 
