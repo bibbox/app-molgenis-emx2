@@ -1,6 +1,6 @@
 # MOLGENIS BIBBOX application
 
-This container can be installed as [BIBBOX APP](http://bibbox.readthedocs.io/en/latest/admin-documentation/ "BIBBOX App Store") or standalone.
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/) or standalone.
  
 After the installation follow these [instructions](INSTALL-APP.md)
 
@@ -25,7 +25,7 @@ The default admin login is **user:admin/pw:admin**.
 
 ## Install within BIBBOX
 
-Within BIBBOX you can use the [BIBBOX APP Store](http://bibbox.readthedocs.io/en/latest/admin-documentation/ "BIBBOX App Store") to install a lot of software tools. After the installation is finished you can start your application in the dashboard.
+Within BIBBOX you can use the [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/) to install a lot of software tools. After the installation is finished you can start your application in the dashboard.
 
 ## Docker Images Used
  * [molgenis/molgenis-emx2](https://hub.docker.com/r/molgenis/molgenis-emx2), offical molgenis-frontend container 
