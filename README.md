@@ -1,35 +1,44 @@
-# MOLGENIS BIBBOX application
+# molgenis-emx2 BIBBOX application
 
-This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/) or standalone.
- 
-After the installation follow these [instructions](INSTALL-APP.md)
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-## Hints
-* approx. time with medium fast internet connection: **15 minutes**
-* initial user/password: **admin / admin**
+- after the docker installation follow these [instructions](INSTALL-APP.md)
 
-## Standalone Installation
+## Standalone Installation 
 
-To install the app locally execute the commands:
-* Clone the git repository: 
-  * `sudo git clone https://github.com/bibbox/app-molgenis-emx2.git`
-* change the current directory to app-molgenis: 
-  * `cd app-molgenis-emx2/` 
-* Change the permission of the directory `./data`: 
-  * `chmod -R 777 data`
-* Run **docker-compose up** in the root folder of the project: 
-  * `docker-compose up -d`
- 
-After the installation (might take a few minutes) open **http://localhost:8080** in your browser to access Molgenis.
-The default admin login is **user:admin/pw:admin**.
+Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
+
+```
+git clone https://github.com/bibbox/app-molgenis-emx2
+cd app-molgenis-emx2
+docker-compose up -d
+```
+
+The main app can be opened and set up at
+```
+http://localhost:8080
+```
 
 ## Install within BIBBOX
 
-Within BIBBOX you can use the [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/) to install a lot of software tools. After the installation is finished you can start your application in the dashboard.
+Visit the BIBBOX page and find the App by its name in the Store. Click on the symbol and select Install. Then fill the parameters below and name your app click install again.
 
-## Docker Images Used
- * [molgenis/molgenis-emx2](https://hub.docker.com/r/molgenis/molgenis-emx2), offical molgenis-frontend container 
- * [postgres:13-alpine](https://hub.docker.com/_/postgres), offical postgres container
+## Docker Images used
+  - [postgres](https://hub.docker.com/r/postgres) 
+  - [molgenis/molgenis-emx2](https://hub.docker.com/r/molgenis/molgenis-emx2) 
+  - [molgenis/ssr-catalogue](https://hub.docker.com/r/molgenis/ssr-catalogue) 
+
+
  
+## Install Environment Variables
+  - DB_PASSWORD = Database password, please change for production
+
+  
+The default values for the standalone installation are:
+  - DB_PASSWORD = changethispasswordinproductionenvironments
+
+  
 ## Mounted Volumes
-* ./data/psql
+### postgres Conatiner
+  - *./data/psql:/var/lib/postgresql/data*
+  - *./data/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql*
