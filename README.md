@@ -40,7 +40,7 @@ The default values for the standalone installation are:
 
   
 ## Mounted Volumes
-### postgres Conatiner
+### postgres Container
   - *./data/psql:/var/lib/postgresql/data*
   - *./data/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql*
 
