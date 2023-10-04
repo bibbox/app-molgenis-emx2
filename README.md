@@ -4,6 +4,8 @@ This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en
 
 After the docker installation follow these [instructions](INSTALL-APP.md).
 
+Initial User/Password: admin/admin
+
 ## Standalone Installation 
 
 Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
@@ -11,6 +13,7 @@ Clone the github repository. If necessary change the ports in the environment fi
 ```
 git clone https://github.com/bibbox/app-molgenis-emx2
 cd app-molgenis-emx2
+chmod -R 777 data
 docker network create bibbox-default-network
 docker-compose up -d
 ```
