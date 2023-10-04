@@ -14,6 +14,7 @@ Clone the github repository. If necessary change the ports in the environment fi
 git clone https://github.com/bibbox/app-molgenis-emx2
 cd app-molgenis-emx2
 chmod -R 777 data
+rm data/psql/.gitkeep
 docker network create bibbox-default-network
 docker-compose up -d
 ```
