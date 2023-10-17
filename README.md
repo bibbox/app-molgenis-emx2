@@ -1,6 +1,6 @@
 # molgenis-emx2 BIBBOX application
 
-This container can be installed as [BIBBOX APP]([https://bibbox.readthedocs.io/en/latest/]) or standalone.
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
 After the docker installation follow these [instructions](INSTALL-APP.md).
 
