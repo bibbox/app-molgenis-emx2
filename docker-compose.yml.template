@@ -6,7 +6,8 @@ networks:
     
 services:
   §§INSTANCE-molgenis-emxtwo-postgres:
-    image: postgres:14-alpine
+    image: postgres:15-alpine
+    restart: unless-stopped
     container_name: §§INSTANCE-molgenis-emxtwo-postgres
     networks:
       - bibbox-default-network
@@ -27,7 +28,7 @@ services:
       retries: 5
     
   §§INSTANCE-molgenis-emxtwo:
-    image: molgenis/molgenis-emx2:8.203.0
+    image: molgenis/molgenis-emx2:11.15.9
     container_name: §§INSTANCE-molgenis-emxtwo
     networks:
       - bibbox-default-network
@@ -41,7 +42,6 @@ services:
     depends_on:
       §§INSTANCE-molgenis-emxtwo-postgres:
         condition: service_healthy
-    restart: on-failure
     links:
       - §§INSTANCE-molgenis-emxtwo-postgres:postgres
       - §§INSTANCE-molgenis-emxtwo-ssr-catalogue:ssr-catalogue
