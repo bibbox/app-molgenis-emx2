@@ -7,7 +7,7 @@ networks:
 services:
   bibbox-postgres:
     image: postgres:15-alpine
-    
+    restart: unless-stopped
     networks:
       - bibbox-default-network
     environment:
