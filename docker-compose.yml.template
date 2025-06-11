@@ -27,7 +27,7 @@ services:
       retries: 5
     
   §§INSTANCE-molgenis-emxtwo:
-    image: molgenis/molgenis-emx2:8.203.0
+    image: molgenis/molgenis-emx2:v13.11.0
     container_name: §§INSTANCE-molgenis-emxtwo
     networks:
       - bibbox-default-network
